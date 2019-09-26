@@ -1,3 +1,0 @@
-C:\Users\valer\OneDrive\Desktop\Progra III\progra3-chat\Code\obj\Debug\Code.njsprojAssemblyReference.cache
-C:\Users\valer\OneDrive\Desktop\Progra III\progra3-chat\Code\obj\Debug\Code.njsproj.CoreCompileInputs.cache
-C:\Users\valer\OneDrive\Desktop\Progra III\progra3-chat\Code\bin\Microsoft.NodejsTools.WebRole.dll
