@@ -5,11 +5,11 @@
 }
 h1 {
     font-weight: bold;
-    color: #fff;
+    color: #b5525c;
     font-size: 32px;
 }
 body {
-    background: #01172F;
+    background: #6bc5d2;
     padding: 10px;
     height: auto;
     width: auto;
@@ -19,6 +19,7 @@ body {
 #title {
     display: inline-grid;
     grid-template-columns: 65vh 50vh
+
 }
 
 form {
@@ -33,7 +34,7 @@ form {
     }
 
     form input[type='submit'] {
-        background: #00635D;
+        background: #b5525c;
         border: none;
         border-radius: 5vh;
         color: #FFF;
@@ -46,8 +47,8 @@ form {
     width: 20vh;
 }
 #history {
-    background: #08A4BD;
-    border: 5px solid #08A4BD;
+    background: #d2fafb;
+    border: 5px solid #b5525c;
     border-radius: 10px;
     height: 50vh;
     width: 108vh;
