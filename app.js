@@ -1,31 +1,32 @@
-﻿var express = require('express');
-var app = express();
-var http = require('http').createServer(app);
-var port = process.env.PORT || 1337;
-//Conectar el socket con el local host
-var socket = io.connect('http://localhost:1337')
-//Variables para mandar el mensaje 
-var message = $('#message')
-var snd_msg = $('#snd_msg')
-app.use(express.static(__dirname));
+'use strict'
 
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+const api = require('./routes')
+const path = require('path')
+const viewsPath = path.join(__dirname + '/views/')
 
-http.listen(port, function () {
-    console.log('listening on *:' + port);
-});
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-//Enviar el mensage
-snd_msg.click(function () {
-    socket.emit('new_message', { message: message.val() })
+app.set('view engine', 'html')
+
+app.use('/assets', [
+    express.static(__dirname + '/node_modules/jquery/dist/'),
+    express.static(__dirname + '/node_modules/socket.io-client/dist/'),
+    express.static(__dirname + '/views/')
+]);
+
+app.use('/api', api)
+app.get('/login', (req, res) => {
+    res.render('login')
+})
+app.get('/chat', (req, res) => {
+    res.sendFile(path.join(viewsPath + 'chat.html'));
 })
 
-var mongoose = require('mongoose');
 
-var dbUrl = 'mongodb+srv://isaaczb12:Ccxx745z@progra-3-lvfu9.mongodb.net/test?retryWrites=true&w=majority'
 
-mongoose.connect(dbUrl, (err) => {
-    console.log('mongodb connected', err);
-})
+
+module.exports = app
